@@ -1,0 +1,137 @@
+﻿@page "/"
+@inject DocumentService DocumentService
+@inject IJSRuntime JS
+
+<div class="container">
+    <DxFormLayout>
+        <DxFormLayoutGroup Caption="Loan Amortization Schedule" ColSpanMd="11">
+            <DxFormLayoutItem ColSpanMd="12">
+                <Template>
+                    <p>
+                        This example uses the <a href=" https://www.devexpress.com/products/net/office-file-api/">Spreadsheet Document API</a>
+                        to create a loan amortization schedule. Specify the loan amount, loan period in years, annual interest rate, and
+                        start date to calculate your loan payments. Click <b>"Export to XLSX"</b> or <b>"Export to PDF"</b>
+                        to save the result as XLSX or PDF.
+                    </p>
+                </Template>
+            </DxFormLayoutItem>
+
+            <DxFormLayoutItem Caption="Loan Amount:" ColSpanMd="5">
+                <Template>
+                    <DxSpinEdit @bind-Value="LoanAmount"
+                                DisplayFormat="c"
+                                Increment="100"
+                                MinValue="100"
+                                MaxValue="1000000" />
+                </Template>
+            </DxFormLayoutItem>
+
+            <DxFormLayoutItem Caption="Period in Years:" ColSpanMd="5">
+                <Template>
+                    <DxSpinEdit @bind-Value="PeriodInDays"
+                                Increment="1"
+                                MinValue="1"
+                                MaxValue="100" />
+                </Template>
+            </DxFormLayoutItem>
+
+            <DxFormLayoutItem ColSpanMd="2">
+                <Template>
+                    <DxButton Click="ExportToXlsx" CssClass="btn-block" Text="Export to XLSX" />
+                </Template>
+            </DxFormLayoutItem>
+
+            <DxFormLayoutItem Caption="Interest Rate:" ColSpanMd="5">
+                <Template>
+                    <DxSpinEdit @bind-Value="InterestRate"
+                                DisplayFormat="p"
+                                Increment="0.01"
+                                MinValue="0.001"
+                                MaxValue="100" />
+                </Template>
+            </DxFormLayoutItem>
+
+            <DxFormLayoutItem Caption="Start Date of Loan:" ColSpanMd="5">
+                <Template>
+                    <DxDateEdit @bind-Date="StartDate"></DxDateEdit>
+                </Template>
+            </DxFormLayoutItem>
+
+            <DxFormLayoutItem ColSpanMd="2">
+                <Template>
+                    <DxButton Click="ExportToPdf" CssClass="btn-block" Text="Export to PDF" />
+                </Template>
+            </DxFormLayoutItem>
+
+            <DxFormLayoutItem ColSpanMd="12">
+                <Template>
+                    <iframe class="col p-0 preview" height="500" src="@content" />
+                </Template>
+            </DxFormLayoutItem>
+        </DxFormLayoutGroup>
+    </DxFormLayout>
+</div>
+
+@code{ double loanAmount = 19000;
+    int periodInYears = 2;
+    double interestRate = 0.055d;
+    DateTime startDate = DateTime.Now;
+    string content;
+
+    double LoanAmount
+    {
+        get => loanAmount;
+        set { loanAmount = value; UpdateValue(); }
+    }
+    int PeriodInDays
+    {
+        get => periodInYears;
+        set { periodInYears = value; UpdateValue(); }
+    }
+    double InterestRate
+    {
+        get => interestRate;
+        set { interestRate = value; UpdateValue(); }
+    }
+    DateTime StartDate
+    {
+        get => startDate;
+        set { startDate = value; UpdateValue(); }
+    }
+
+    protected override async Task OnInitializedAsync()
+    {
+        await UpdatePreview();
+        await base.OnInitializedAsync();
+    }
+
+    void UpdateValue() =>
+        InvokeAsync(async () =>
+        {
+            await UpdatePreview();
+            StateHasChanged();
+        });
+
+    async Task UpdatePreview()
+    {
+        var document = await DocumentService.GetHtmlDocumentAsync(loanAmount, periodInYears, interestRate, startDate);
+        content = "data:text/html;base64," + Convert.ToBase64String(document);
+    }
+
+    void ExportToXlsx(MouseEventArgs args) => JS.InvokeAsync<object>("open", 
+        GetQueryString("api/Export/Xlsx"), "_self");
+
+    void ExportToPdf(MouseEventArgs args) => JS.InvokeAsync<object>("open", 
+        GetQueryString("api/Export/Pdf"), "_self");
+
+    string GetQueryString(string uri)
+    {
+        var queryParams = new Dictionary<string, string>() {
+            { "loanAmount", loanAmount.ToString() },
+            { "periodInYears", periodInYears.ToString() },
+            { "interestRate", interestRate.ToString(CultureInfo.InvariantCulture) },
+            { "loanStartDate", startDate.ToString("O") },
+        };
+        return QueryHelpers.AddQueryString(uri, queryParams);
+    }
+}
