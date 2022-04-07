@@ -17,6 +17,10 @@ To run this application, you need to install or restore the following NuGet pack
 
 * [DevExpress.Blazor](https://nuget.devexpress.com/packages/DevExpress.Blazor/) - Contains all [DevExpress Blazor UI components](https://www.devexpress.com/blazor/).
 
+## Documentation
+
+Refer to this help topic for implementation details: [Use the Spreadsheet Document API to Create a Loan Amortization Schedule within a Blazor Server App](https://docs.devexpress.com/OfficeFileAPI/403798/dotnet-core-support/use-spreadsheet-document-api-to-create-a-loan-amortization-schedule-within-a-blazor-server-app).
+
 ## Files to Look At
 
 * [DocumentGenerator.cs](./CS/BlazorApp_SpreadsheetDocumentAPI/Code/DocumentGenerator.cs)
@@ -29,5 +33,5 @@ To run this application, you need to install or restore the following NuGet pack
 
 ## More Examples
 
-- [Word Processing Document API – How to Generate and Send Business Letters within a Blazor Server App](https://github.com/DevExpress-Examples/word-document-api-generate-and-send-letters-within-blazor-server-app)
-- [How to Dockerize an Office File API Application](https://github.com/DevExpress-Examples/dockerize-office-file-api-app)
+* [Word Processing Document API – How to Generate and Send Business Letters within a Blazor Server App](https://github.com/DevExpress-Examples/word-document-api-generate-and-send-letters-within-blazor-server-app)
+* [How to Dockerize an Office File API Application](https://github.com/DevExpress-Examples/dockerize-office-file-api-app)
