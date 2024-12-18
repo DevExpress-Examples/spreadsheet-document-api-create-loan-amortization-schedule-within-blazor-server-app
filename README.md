@@ -4,17 +4,19 @@
 [![](https://img.shields.io/badge/📖_How_to_use_DevExpress_Examples-e9f6fc?style=flat-square)](https://docs.devexpress.com/GeneralInformation/403183)
 [![](https://img.shields.io/badge/💬_Leave_Feedback-feecdd?style=flat-square)](#does-this-example-address-your-development-requirementsobjectives)
 <!-- default badges end -->
-# Spreadsheet Document API - How to Create a Loan Amortization Schedule within a .NET 6 Blazor Server App
+# Spreadsheet Document API - How to Create a Loan Amortization Schedule within a .NET 8 Blazor Server App
 
-This example demonstrates how to create a Blazor Server application that targets .NET 6 and leverages the capabilities of the [DevExpress Spreadsheet Document API](https://www.devexpress.com/products/net/office-file-api/spreadsheet/) to build a loan amortization schedule.
+This example demonstrates a Blazor Server application that targets .NET 8 and leverages the capabilities of the [DevExpress Spreadsheet Document API](https://www.devexpress.com/products/net/office-file-api/spreadsheet/) to build a loan amortization schedule.
 
-The application allows users to enter loan information (loan amount, repayment period in years, annual interest rate, and start date). Once data is entered, the Spreadsheet immediately recalculates loan payments and updates data on the application page. Users can export the result to XLSX or PDF as needed.
+The application allows users to enter loan information (loan amount, repayment period in years, annual interest rate, and start date). Once users enter data, the Spreadsheet immediately recalculates loan payments and updates data on the application page. Users can export the result to XLSX or PDF as needed.
 
 ![Spreadsheet - Final App](./images/spreadsheet-api-blazor-final-app.png)
 
-To run this application, you need to install or restore the following NuGet packages:
+To run this application, install or restore the following NuGet packages:
 
 * [DevExpress.Document.Processor](https://nuget.devexpress.com/packages/DevExpress.Document.Processor/) - Contains the [DevExpress Office File API](https://www.devexpress.com/products/net/office-file-api/) libraries.
+
+* [DevExpress.Drawing.Skia](https://nuget.devexpress.com/packages/DevExpress.Drawing.Skia/) - Contains the cross-platform drawing functionality based on the Skia Graphics Library.
 
 * [DevExpress.Blazor](https://nuget.devexpress.com/packages/DevExpress.Blazor/) - Contains all [DevExpress Blazor UI components](https://www.devexpress.com/blazor/).
 
@@ -24,17 +26,17 @@ Refer to this help topic for implementation details: [Use the Spreadsheet Docume
 
 ## Files to Look At
 
-* [DocumentGenerator.cs](./CS/BlazorApp_SpreadsheetDocumentAPI/Code/DocumentGenerator.cs)
+* [DocumentGenerator.cs](./CS/BlazorAppSpreadsheet/Code/DocumentGenerator.cs)
 
-* [DocumentService.cs](./CS/BlazorApp_SpreadsheetDocumentAPI/Code/DocumentService.cs)
+* [DocumentService.cs](./CS/BlazorAppSpreadsheet/Code/DocumentService.cs)
 
-* [ExportController.cs](./CS/BlazorApp_SpreadsheetDocumentAPI/Controllers/ExportController.cs)
+* [ExportController.cs](./CS/BlazorAppSpreadsheet/Controllers/ExportController.cs)
 
-* [Index.razor](./CS/BlazorApp_SpreadsheetDocumentAPI/Pages/Index.razor)
+* [App.razor](./CS/BlazorAppSpreadsheet/Components/App.razor)
 
 ## More Examples
 
-* [Word Processing Document API – How to Generate and Send Business Letters within a Blazor Server App](https://github.com/DevExpress-Examples/word-document-api-generate-and-send-letters-within-blazor-server-app)
+* [Word Processing Document API-How to Generate and Send Business Letters within a Blazor Server App](https://github.com/DevExpress-Examples/word-document-api-generate-and-send-letters-within-blazor-server-app)
 * [How to Dockerize an Office File API Application](https://github.com/DevExpress-Examples/dockerize-office-file-api-app)
 <!-- feedback -->
 ## Does this example address your development requirements/objectives?
