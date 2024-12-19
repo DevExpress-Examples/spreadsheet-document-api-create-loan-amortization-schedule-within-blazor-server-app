@@ -1,9 +1,9 @@
-﻿using BlazorApp_SpreadsheetDocumentAPI;
+﻿using BlazorAppSpreadsheet;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Threading.Tasks;
 
-namespace BlazorApp_SpreadsheetAPI.Controllers
+namespace BlazorAppSpreadsheet
 {
     [Route("api/[controller]")]
     [ApiController]
@@ -18,23 +18,23 @@ namespace BlazorApp_SpreadsheetAPI.Controllers
 
         [HttpGet]
         [Route("[action]")]
-        public async Task<IActionResult> Xlsx([FromQuery] double loanAmount, 
-            [FromQuery] int periodInYears, [FromQuery] double interestRate, 
+        public async Task<IActionResult> Xlsx([FromQuery] double loanAmount,
+            [FromQuery] int periodInYears, [FromQuery] double interestRate,
             [FromQuery] DateTime loanStartDate)
         {
-            var document = await documentService.GetXlsxDocumentAsync(loanAmount, periodInYears, 
+            var document = await documentService.GetXlsxDocumentAsync(loanAmount, periodInYears,
                 interestRate, loanStartDate);
-            return File(document, "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet", 
+            return File(document, "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
                 "output.xlsx");
         }
 
         [HttpGet]
         [Route("[action]")]
-        public async Task<IActionResult> Pdf([FromQuery] double loanAmount, 
-            [FromQuery] int periodInYears, [FromQuery] double interestRate, 
+        public async Task<IActionResult> Pdf([FromQuery] double loanAmount,
+            [FromQuery] int periodInYears, [FromQuery] double interestRate,
             [FromQuery] DateTime loanStartDate)
         {
-            var document = await documentService.GetPdfDocumentAsync(loanAmount, periodInYears, 
+            var document = await documentService.GetPdfDocumentAsync(loanAmount, periodInYears,
                 interestRate, loanStartDate);
             return File(document, "application/pdf", "output.pdf");
         }

@@ -1,9 +1,10 @@
 ﻿using System;
 using System.IO;
 using System.Threading.Tasks;
+using BlazorAppSpreadsheet;
 using DevExpress.Spreadsheet;
 
-namespace BlazorApp_SpreadsheetDocumentAPI
+namespace BlazorAppSpreadsheet
 {
     public class DocumentService
     {

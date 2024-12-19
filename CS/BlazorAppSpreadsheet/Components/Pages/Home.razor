@@ -1,4 +1,7 @@
 ﻿@page "/"
+@rendermode InteractiveServer
+@using System.Globalization
+@using Microsoft.AspNetCore.WebUtilities
 @inject DocumentService DocumentService
 @inject IJSRuntime JS
 
@@ -8,10 +11,11 @@
             <DxFormLayoutItem ColSpanMd="12">
                 <Template>
                     <p>
-                        This example uses the 
-                        <a href="https://www.devexpress.com/products/net/office-file-api/spreadsheet/">Spreadsheet Document API</a>
-                        to create a loan amortization schedule. Specify the loan amount, loan period in years,
-                        annual interest rate, and start date to calculate your loan payments. Click <b>Export to XLSX</b>
+                        This example uses the Spreadsheet Document API
+                        to create a loan amortization schedule.
+                        Specify the loan amount, loan period in years,
+                        annual interest rate, and start date to calculate
+                        your loan payments. Click <b>Export to XLSX</b>
                         or <b>Export to PDF</b> to save the result as XLSX or PDF.
                     </p>
                 </Template>
@@ -66,14 +70,14 @@
 
             <DxFormLayoutItem ColSpanMd="12">
                 <Template>
-                    <iframe class="col p-0 preview" height="500" src="@content"/>
+                    <iframe class="col p-0 preview" height="500"  width="1100" src="@content" />
                 </Template>
             </DxFormLayoutItem>
         </DxFormLayoutGroup>
     </DxFormLayout>
 </div>
 
-@code{ 
+@code {
     string content = String.Empty;
     double loanAmount = 19000;
     int periodInYears = 2;
@@ -121,10 +125,10 @@
         content = "data:text/html;base64," + Convert.ToBase64String(document);
     }
 
-    void ExportToXlsx(MouseEventArgs args) => JS.InvokeAsync<object>("open", 
+    async Task ExportToXlsx(MouseEventArgs args) => await JS.InvokeAsync<object>("open",
         GetQueryString("api/Export/Xlsx"), "_self");
 
-    void ExportToPdf(MouseEventArgs args) => JS.InvokeAsync<object>("open", 
+    async Task ExportToPdf(MouseEventArgs args) => await JS.InvokeAsync<object>("open",
         GetQueryString("api/Export/Pdf"), "_self");
 
     string GetQueryString(string uri)

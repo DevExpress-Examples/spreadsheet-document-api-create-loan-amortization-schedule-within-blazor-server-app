@@ -2,7 +2,7 @@
 using System.Drawing;
 using DevExpress.Spreadsheet;
 
-namespace BlazorApp_SpreadsheetDocumentAPI
+namespace BlazorAppSpreadsheet
 {
     public class LoanAmortizationScheduleGenerator
     {
