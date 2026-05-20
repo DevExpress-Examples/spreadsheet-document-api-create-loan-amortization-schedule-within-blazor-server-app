@@ -14,11 +14,11 @@ The application allows users to enter loan information (loan amount, repayment p
 
 To run this application, install or restore the following NuGet packages:
 
-* [DevExpress.Document.Processor](https://nuget.devexpress.com/packages/DevExpress.Document.Processor/) - Contains the [DevExpress Office File API](https://www.devexpress.com/products/net/office-file-api/) libraries.
+* [DevExpress.Document.Processor](https://www.nuget.org/packages/DevExpress.Document.Processor/) - Contains the [DevExpress Office File API](https://www.devexpress.com/products/net/office-file-api/) libraries.
 
-* [DevExpress.Drawing.Skia](https://nuget.devexpress.com/packages/DevExpress.Drawing.Skia/) - Contains the cross-platform drawing functionality based on the Skia Graphics Library.
+* [DevExpress.Drawing.Skia](https://www.nuget.org/packages/DevExpress.Drawing.Skia/) - Contains the cross-platform drawing functionality based on the Skia Graphics Library.
 
-* [DevExpress.Blazor](https://nuget.devexpress.com/packages/DevExpress.Blazor/) - Contains all [DevExpress Blazor UI components](https://www.devexpress.com/blazor/).
+* [DevExpress.Blazor](https://www.nuget.orgcom/packages/DevExpress.Blazor/) - Contains all [DevExpress Blazor UI components](https://www.devexpress.com/blazor/).
 
 ## Documentation
 
