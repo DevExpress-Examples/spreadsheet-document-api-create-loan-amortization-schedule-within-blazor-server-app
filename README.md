@@ -18,7 +18,7 @@ To run this application, install or restore the following NuGet packages:
 
 * [DevExpress.Drawing.Skia](https://www.nuget.org/packages/DevExpress.Drawing.Skia/) - Contains the cross-platform drawing functionality based on the Skia Graphics Library.
 
-* [DevExpress.Blazor](https://www.nuget.orgcom/packages/DevExpress.Blazor/) - Contains all [DevExpress Blazor UI components](https://www.devexpress.com/blazor/).
+* [DevExpress.Blazor](https://www.nuget.org/packages/DevExpress.Blazor/) - Contains all [DevExpress Blazor UI components](https://www.devexpress.com/blazor/).
 
 ## Documentation
 
