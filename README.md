@@ -4,7 +4,7 @@
 [![](https://img.shields.io/badge/📖_How_to_use_DevExpress_Examples-e9f6fc?style=flat-square)](https://docs.devexpress.com/GeneralInformation/403183)
 [![](https://img.shields.io/badge/💬_Leave_Feedback-feecdd?style=flat-square)](#does-this-example-address-your-development-requirementsobjectives)
 <!-- default badges end -->
-# Spreadsheet Document API - How to Create a Loan Amortization Schedule within a .NET 8 Blazor Server App
+# Spreadsheet Document API - How to Create a Loan Amortization Schedule within a .NET 10 Blazor Server App
 
 This example demonstrates a Blazor Server application that targets .NET 8 and leverages the capabilities of the [DevExpress Spreadsheet Document API](https://www.devexpress.com/products/net/office-file-api/spreadsheet/) to build a loan amortization schedule.
 
